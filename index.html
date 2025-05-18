@@ -89,20 +89,32 @@
       width: 1163px;
       height: 1400px;
     }
+
+    /* Мобильная адаптация */
     @media (max-width: 768px) {
-      .menu-column {
+      .top-bar {
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
+        gap: 10px;
       }
+
+      .menu-column {
+        flex-direction: column;
+        align-items: center;
+        flex: 1 1 45%;
+        min-width: 140px;
+      }
+
       iframe {
         width: 1000px;
         transform: scale(0.6);
         transform-origin: top left;
       }
     }
+
     @media (max-width: 480px) {
       iframe {
-        width: 1000px;
         transform: scale(0.45);
       }
     }
