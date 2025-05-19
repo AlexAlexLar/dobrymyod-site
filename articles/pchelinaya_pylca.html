@@ -128,35 +128,41 @@
 
   <!-- Подключаем article-footer с Telegram-комментариями -->
   <div id="article-footer-placeholder"></div>
-  <script>
-    fetch('/components/article-footer.html')
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById('article-footer-placeholder').innerHTML = data;
-      });
-  </script>
 
-  <div id="footer-placeholder"></div>
+<script>
+  fetch('/components/article-footer.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('article-footer-placeholder').innerHTML = data;
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script type="module">
-    import { updateCartBadge } from '/js/cart-utils.js';
+      // Кнопки поделиться
+      const currentURL = window.location.href;
 
-    fetch('/components/header.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('header-placeholder').innerHTML = html;
-        updateCartBadge();
-      });
+      const vk = document.getElementById('vkShare');
+      const tg = document.getElementById('tgShare');
+      const wa = document.getElementById('waShare');
 
-    fetch('/components/footer.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('footer-placeholder').innerHTML = html;
-      });
+      if (vk && tg && wa) {
+        vk.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.open(`https://vk.com/share.php?url=${encodeURIComponent(currentURL)}`, '_blank');
+        });
+        tg.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.open(`https://t.me/share/url?url=${encodeURIComponent(currentURL)}`, '_blank');
+        });
+        wa.addEventListener('click', function (e) {
+          e.preventDefault();
+          window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(currentURL)}`, '_blank');
+        });
+      }
 
-    AOS.init({ duration: 800 });
-  </script>
-
+      // Telegram Comments
+      const script = document.createElement('script');
+      script.src = "https://comments.app/js/widget.js?3&limit=10&color=F9C74F&channel=dobrymed_comments";
+      script.async = true;
+      document.getElementById('telegram-comments').appendChild(script);
+    });
+</script>
 </body>
 </html>
