@@ -61,20 +61,22 @@
 </style>
 
 <script>
-  const currentURL = window.location.href;
+  document.addEventListener('DOMContentLoaded', function () {
+    const currentURL = window.location.href;
 
-  document.getElementById('vkShare').addEventListener('click', function (e) {
-    e.preventDefault();
-    window.open(`https://vk.com/share.php?url=${encodeURIComponent(currentURL)}`, '_blank');
-  });
+    document.getElementById('vkShare').addEventListener('click', function (e) {
+      e.preventDefault();
+      window.open(`https://vk.com/share.php?url=${encodeURIComponent(currentURL)}`, '_blank');
+    });
 
-  document.getElementById('tgShare').addEventListener('click', function (e) {
-    e.preventDefault();
-    window.open(`https://t.me/share/url?url=${encodeURIComponent(currentURL)}`, '_blank');
-  });
+    document.getElementById('tgShare').addEventListener('click', function (e) {
+      e.preventDefault();
+      window.open(`https://t.me/share/url?url=${encodeURIComponent(currentURL)}`, '_blank');
+    });
 
-  document.getElementById('waShare').addEventListener('click', function (e) {
-    e.preventDefault();
-    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(currentURL)}`, '_blank');
+    document.getElementById('waShare').addEventListener('click', function (e) {
+      e.preventDefault();
+      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(currentURL)}`, '_blank');
+    });
   });
 </script>
