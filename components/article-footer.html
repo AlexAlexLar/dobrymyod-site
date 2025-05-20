@@ -17,56 +17,66 @@
     </ul>
   </div>
 
- <section class="telegram-comments" style="margin-top: 60px;">
-  <h3>Комментарии через Telegram</h3>
-  <div id="telegram-comments">
-    <script async src="https://comments.app/js/widget.js?3&limit=10&color=F9C74F&channel=dobrymed_comments&comments_url=https%3A%2F%2Fдобрыймёд.com%2Farticles%2Fpchelinaya_pylca.html"></script>
-  </div>
-</section>
+  <section class="telegram-comments" style="margin-top: 60px;">
+    <h3>Комментарии через Telegram</h3>
+    <div id="telegram-comments">
+      <script async src="https://comments.app/js/widget.js?3&limit=10&color=F9C74F&channel=dobrymed_comments&comments_url=https%3A%2F%2Fxn--90afbtpjp2gqc.com%2Farticles%2Fpchelinaya_pylca.html"></script>
+    </div>
+  </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const container = document.getElementById('telegram-comments');
-    if (container) {
-      const script = document.createElement('script');
-      script.src = "https://comments.app/js/widget.js?3&limit=10&color=F9C74F&channel=dobrymed_comments";
-      script.async = true;
-      container.appendChild(script);
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const currentURL = window.location.href;
+
+      document.getElementById('vkShare')?.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.open(`https://vk.com/share.php?url=${encodeURIComponent(currentURL)}`, '_blank');
+      });
+
+      document.getElementById('tgShare')?.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.open(`https://t.me/share/url?url=${encodeURIComponent(currentURL)}`, '_blank');
+      });
+
+      document.getElementById('waShare')?.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(currentURL)}`, '_blank');
+      });
+    });
+  </script>
+
+  <style>
+    .article-footer {
+      text-align: center;
+      padding: 40px 20px;
     }
-  });
-</script>
-
-<style>
-  .article-footer {
-    text-align: center;
-    padding: 40px 20px;
-  }
-  .share-buttons a {
-    display: inline-block;
-    margin: 10px;
-    background: #d4a373;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.3s;
-  }
-  .share-buttons a:hover {
-    background: #b57e50;
-  }
-  .more-articles ul {
-    list-style: none;
-    padding: 0;
-  }
-  .more-articles li {
-    margin: 10px 0;
-  }
-  .more-articles a {
-    color: #5a3e1b;
-    text-decoration: underline;
-  }
-  .telegram-comments h3 {
-    margin-bottom: 20px;
-    color: #5a3e1b;
-  }
-</style>
+    .share-buttons a {
+      display: inline-block;
+      margin: 10px;
+      background: #d4a373;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .share-buttons a:hover {
+      background: #b57e50;
+    }
+    .more-articles ul {
+      list-style: none;
+      padding: 0;
+    }
+    .more-articles li {
+      margin: 10px 0;
+    }
+    .more-articles a {
+      color: #5a3e1b;
+      text-decoration: underline;
+    }
+    .telegram-comments h3 {
+      margin-bottom: 20px;
+      color: #5a3e1b;
+    }
+  </style>
+</div>
