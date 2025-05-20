@@ -17,11 +17,22 @@
     </ul>
   </div>
 
-  <section class="telegram-comments" style="margin-top: 60px;">
-    <h3>Комментарии через Telegram</h3>
-    <div id="telegram-comments-container"></div>
-  </section>
-</div>
+ <section class="telegram-comments" style="margin-top: 60px;">
+  <h3>Комментарии через Telegram</h3>
+  <div id="telegram-comments"></div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('telegram-comments');
+    if (container) {
+      const script = document.createElement('script');
+      script.src = "https://comments.app/js/widget.js?3&limit=10&color=F9C74F&channel=dobrymed_comments";
+      script.async = true;
+      container.appendChild(script);
+    }
+  });
+</script>
 
 <style>
   .article-footer {
