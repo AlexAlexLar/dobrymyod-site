@@ -19,7 +19,7 @@
 
   <section class="telegram-comments" style="margin-top: 60px;">
     <h3>Комментарии через Telegram</h3>
-    <div id="telegram-comments"></div>
+    <div id="telegram-comments-container"></div>
   </section>
 </div>
 
@@ -57,24 +57,3 @@
     color: #5a3e1b;
   }
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const currentURL = window.location.href;
-
-    document.getElementById('vkShare').addEventListener('click', function (e) {
-      e.preventDefault();
-      window.open(`https://vk.com/share.php?url=${encodeURIComponent(currentURL)}`, '_blank');
-    });
-
-    document.getElementById('tgShare').addEventListener('click', function (e) {
-      e.preventDefault();
-      window.open(`https://t.me/share/url?url=${encodeURIComponent(currentURL)}`, '_blank');
-    });
-
-    document.getElementById('waShare').addEventListener('click', function (e) {
-      e.preventDefault();
-      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(currentURL)}`, '_blank');
-    });
-  });
-</script>
